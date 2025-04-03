@@ -1,108 +1,126 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-}  
-    .navbar {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        background-color: #f8f9fa;
-        border-bottom: 1px solid #ccc;
-        height: 50px;
-    }
-    
-    .navbar a:first-of-type {
-        margin-left: auto;
-    }
-    .navbar a {
-        text-decoration: none;
-        color: black;
-        margin: -300px 10px;
-    }
-    .navbar .log{
-        text-align: center;
-        width: 80px;
-        height: 30px;
-        padding-top: 9px;
-        align-items: center;
-        border:2px solid #378BA4;
-        background-color: #378BA4;
-        border-radius: 5px;
-    }
-
-    .navbar .log a{
-        padding-top: -30px;
-    }
-
-    .logo {
-        height: 200px;
-        width: 600px;
-        background-image: url('image/WashWise-removebg-preview.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        margin-left: -200px;
-    }
-
-.her{
-    margin: 0;
-    padding: 0;
-    top: 0;
+    line-height: 1.6;
     width: 100%;
-    height: 89.3vh;
-    background: url(image/car.png) no-repeat center center fixed;
+    background: url(image/bga.png) no-repeat center center fixed;
     background-size: cover;
-    position: relative;
+    height: 300vh; 
+}  
+
+.navbar {
     display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    height: 50px;
 }
 
-.her ol{
-    position:relative;
-    width: 100%;
-    height: 100.2%;
-    top: -17px;
-    background: linear-gradient(to right,
-    rgba(1,44,74,1) 40%,
-    rgba(1,44,74,0.7) 60%,
-    rgba(1,44,74,0.4) 80%,
-    rgba(1,44,74,0)) 100%;
-    
-
+.navbar a:first-of-type {
+    margin-left: auto;
 }
 
+.navbar a {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px; /* Fixed negative margin */
+}
 
+.navbar .log {
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    padding: 9px 0 0 0; /* Fixed padding */
+    border: 2px solid #378BA4;
+    background-color: #378BA4;
+    border-radius: 5px;
+}
+
+.logo {
+    height: 200px;
+    width: 600px;
+    background-image: url('image/WashWise-removebg-preview.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: -200px;
+}
+
+.section_1 {
+    min-height: 100vh;
+    padding: 100px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+}
+
+.section_2 {
+    min-height: 120vh;
+    padding: 100px 20px 20px;
+    display: flex;
+    background-color: #f8f9fa;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+}
+
+.section_3 {
+    min-height: 100vh;
+    padding: 100px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+}
+
+.her {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
 span.accent-1 {  
     color: whitesmoke;
-    font-size: 80px;
-    font-weight: 900;
-}
-span.accent-2 { 
-    color: #c74c3c;
-    padding-left: 60px;
-    font-size: 20px;
-    font-weight: 900;
-}
-
-span.ler{
-    height: 20px;
-    color: whitesmoke;
-}
-
-.her .more{
+    padding: 0 20px;
+    margin-bottom: 20px;
     text-align: center;
-    margin: 50px; 
+    font-size: 60px;
+    font-weight: 900;
+}
+
+span.accent-2 { 
+    color: #2b5697;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.her .more {
+    text-align: center;
+    margin: 20px auto 0;
     width: 170px;
     height: 40px;
-    border:2px solid #378BA4;
+    border: 2px solid #378BA4;
     background-color: #378BA4;
     border-radius: 5px;
 }
 
 .her .more a {
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 40px
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 40px;
 }

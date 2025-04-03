@@ -64,7 +64,7 @@ $error = [
                         <option value="">--Select Role---</option>
                         <option value="customer">Customer</option>
                         <option value="owner">Owner</option>
-                    </select>S
+                    </select>
                 </div>
 
                 <button type="submit" class="btn0" name="register">Register</button>
