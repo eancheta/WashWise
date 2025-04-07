@@ -68,7 +68,7 @@ body {
     padding: 0px 40px;
     text-align: center;
     margin: 50px auto; 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(50px);
 
 }
 
