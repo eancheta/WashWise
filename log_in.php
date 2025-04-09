@@ -16,7 +16,7 @@ if (isset($_POST['login'])){
             $_SESSION['password']= $user['password'];
 
             if ($user['role']=== 'customer'){
-            header("Location: dashboard.html");
+            header("Location: dashboard.php");
             }else{
             header("Location: index.html");
             }
