@@ -1,7 +1,5 @@
 <?php
-session_start(); 
-
-
+session_start();
 require_once 'config.php';
 ?>
 
@@ -42,8 +40,6 @@ require_once 'config.php';
             <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Icon">
         </div>
     </header>
-
-    <!-- Page content goes here -->
 
 </body>
 </html>
