@@ -36,7 +36,7 @@ if (isset($_POST['registerOw'])){
         $conn->query("INSERT INTO washwiseow( user, passwordOw, addressOw, contactOw, districtOw) VALUES ('$username','$password','$address','$contact','$district')");
     }
 
-    header("Location: Login.php");
+    header("Location: ownercreate.php");
     exit();
 }
 

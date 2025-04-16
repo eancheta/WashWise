@@ -8,7 +8,7 @@ body {
     height: 89.3vh;
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-    background: url(image/car.png) no-repeat center center fixed;
+    background: url(car.png) no-repeat center center fixed;
     background-size: cover;
 
 }
@@ -49,7 +49,7 @@ body {
 .logo {
     height: 200px;
     width: 600px;
-    background-image: url('image/WashWise-removebg-preview.png');
+    background-image: url('WashWise-removebg-preview.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

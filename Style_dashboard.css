@@ -41,7 +41,6 @@ header{
 
 
 #menuToggle {
-    display: block;
     position: fixed;
     top: 30px;
     left: 20px;
@@ -62,7 +61,6 @@ header{
 
 
     #menuToggle input {
-        display: block;
         width: 40px;
         height: 32px;
         position: absolute;
@@ -71,7 +69,6 @@ header{
         cursor: pointer;
         opacity: 0;
         z-index: 2;
-
         -webkit-touch-callout: none;
     }
 
@@ -104,11 +101,10 @@ header{
             opacity: 0;
             transform: rotate(0deg) scale(0.2, 0.2);
         }
-        #menuToggle input:checked ~ span:nth-last-child(2) {
-            transform: rotate(-45deg) translate(0, -1px);
-        }
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
 #menu {
-    position: absolute;
     max-width: 400px;
     width: 100vw;
     max-height: 100vh;
@@ -116,11 +112,9 @@ header{
     padding: 50px;
     padding-top: 125px;
     box-sizing: border-box;
-    overflow-y: auto;
     background: #ededed;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
-
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -143,8 +137,71 @@ header{
     width: 600px;
     top: 30px;
     left: 20px;
-    background-image: url('image/WashWise-removebg-preview.png');
+    background-image: url('WashWise-removebg-preview.png');
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 50px;
 }
+
+section{
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+}
+.container{
+    max-width: 100%;
+    height: 650px;
+    background-color: #ededed;
+    border-radius: 25px;
+    overflow: scroll;
+    }
+    .profile {
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        gap: 20px;
+    }
+    
+    .profile .info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 100%;
+    }
+    
+    .profile .nam {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .profile .des {
+        margin: 0;
+        font-size: 18px;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    
+    .save-btn {
+        align-self: flex-start;
+        padding: 8px 16px;
+        background-color: #1e4b8c;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    
+.profile img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    background-color: #ccc;
+    }
+    

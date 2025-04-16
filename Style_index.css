@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     width: 100%;
-    background: url(image/bga.png) no-repeat center center fixed;
+    background: url(bga.png) no-repeat center center fixed;
     background-size: cover;
     height: 300vh; 
 }  
@@ -40,7 +40,7 @@ body {
 .logo {
     height: 200px;
     width: 600px;
-    background-image: url('image/WashWise-removebg-preview.png');
+    background-image: url('WashWise-removebg-preview.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

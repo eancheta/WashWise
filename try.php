@@ -1,12 +1,12 @@
-<?php
-// Hard-coded test values
-$enteredPassword = "sss";  // Password you entered
-$storedHash = '$2y$10$MOzZ9/pSse62Npu54SWmre/jNMu3oBHNyeMKbqsUCR/yJbVBitvFa';  // Stored hash from DB
-
-// Test password verification
-if (password_verify($enteredPassword, $storedHash)) {
-    echo "✅ Password matched!";
-} else {
-    echo "❌ Password mismatch!";
-}
-?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Button</title>
+</head>
+<body>
+    <form method="post" action="dash.php">
+        <input type="hidden" name="brand_table" value="test_table">
+        <button type="submit" class="save-btn">Add Data</button>
+    </form>
+</body>
+</html>
