@@ -57,7 +57,7 @@ require_once 'config.php';
             echo "<h3 class='des'>$description</h3>";
             echo "<form method='post' action='dash.php'>";
             echo "<input type='hidden' name='brand_table' value='$name'>";
-            echo "<button type='submit' class='save-btn'>Access $name</button>";
+            echo "<button type='submit' class='save-btn'>Book at $name</button>";
             echo "</form>";
             echo "</div>";
             echo "</div>";
