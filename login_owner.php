@@ -1,31 +1,33 @@
 <?php
-
 session_start();
 require_once 'config.php';
 
-if (isset($_POST['loginOw'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $inputName = $_POST['username'];
+    $inputPassword = $_POST['password'];
 
+    $stmt = $conn->prepare("SELECT * FROM profileowner WHERE name = ?");
+    $stmt->bind_param("s", $inputName);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    $result = $conn->query("SELECT * FROM washwiseow WHERE user ='$username'");
-    if ($result->num_rows > 0) {
-        $user= $result->fetch_assoc();
-        if (password_verify($password, $user['passwordOw'])){
-            $_SESSION['username']= $user['user'];
-            $_SESSION['password']= $user['passwordOw'];
-            header("Location: dashboard.php");
+    if ($result && $result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        $storedHashedPassword = $user['passwordOw'];
+
+        if (password_verify($inputPassword, $storedHashedPassword)) {
+            // Success
+            $_SESSION['username'] = $user['name'];
+            $_SESSION['table'] = $user['name'];
+
+            header("Location: ownerdash.php");
             exit();
         }
+    }
 
-    } 
-
-    $_SESSION['login_error']= 'Incorrect email or password';
-    $_SESSION['active_form']= 'login';
+    $_SESSION['login_error'] = '❌ Incorrect username or password';
+    $_SESSION['active_form'] = 'login';
     header("Location: Login.php");
     exit();
 }
-
-
-
 ?>

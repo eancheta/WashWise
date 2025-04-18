@@ -87,14 +87,7 @@ $error = [
  
         <div class="gh" id="gh2">
             <form class="form_reg" id="loginForm"  method="post" action="register.php">
-                <h1>Owner</h1>
-               
-                <div class="Input">
-                    <input type="text"  placeholder="Username" name="usernOw" required>
-                </div>
-                <div class="Input">
-                    <input type="text"  placeholder="Password" name="passwOw" required>
-                </div>
+                <h1>Owner</h1>               
                 <div class="Input">
                     <input type="text"  placeholder="Address" name="addOw" required>
                 </div>

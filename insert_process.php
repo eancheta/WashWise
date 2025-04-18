@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $sql = "INSERT INTO `$table` (name, TimeOfBooking , Contact_no) VALUES (? , ? , ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $name,$contact, $booking );
+    $stmt->bind_param("sss", $name, $booking, $contact );
 
     if ($stmt->execute()) {
         echo "successfully book into $table!";

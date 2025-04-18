@@ -34,17 +34,21 @@
 
                 <div class="profile-photo"></div>
                 <div class="add-photo">Add Photo <span>➕</span>
-                    <input type="file" id="brand-name " name="image" />
+                    <input type="file" id="brand-name " name="image" required />
                 </div>
           
                 <div class="form-group">
-                  <label for="brand-name">Car wash brand name</label>
-                  <input type="text" id="brand-name" name="fullname"/>
+                  <input type="text" id="brand-name" placeholder="Car wash brand " name="fullname" required/>
                 </div>
+
+                <div class="form-group">
+                    <input type="text"  placeholder="Password" name="passwOw" required>
+                </div>
+
           
                 <div class="form-group">
                   <label for="description">Description</label>
-                  <textarea id="desc" name = "description"></textarea>
+                  <textarea id="desc" name = "description" required></textarea>
                 </div>
           
                 <button class="save-btn" name="submit">Save</button>

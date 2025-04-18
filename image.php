@@ -4,6 +4,7 @@ include_once("config.php");
 if (isset($_POST["submit"])) {
     $fullName = $_POST["fullname"];
     $fileName = $_FILES["image"]["name"];
+    $password = password_hash ($_POST['passwOw'], PASSWORD_DEFAULT);
     $description = $_POST["description"];
 
     $sql = "CREATE TABLE `$fullName` (
@@ -27,7 +28,7 @@ if (isset($_POST["submit"])) {
 
     if (in_array(strtolower($ext), $allowedTypes)) {
         if (move_uploaded_file($tempName, $targetPath)) {
-            $query = "INSERT INTO profileowner (name, image, description) VALUES ('$fullName', '$uniqueName', '$description')";
+            $query = "INSERT INTO profileowner (image, name, passwordOw, description) VALUES ('$uniqueName', '$fullName', '$password','$description')";
             if (mysqli_query($conn, $query)) {
                 header("Location: Login.php");
                 exit();
