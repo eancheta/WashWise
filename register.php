@@ -21,23 +21,5 @@ if (isset($_POST['register'])){
     header("Location: Login.php");
     exit();
 }
-if (isset($_POST['registerOw'])){
-    $username = $_POST['usernOw'];
-    $password = password_hash ($_POST['passwOw'], PASSWORD_DEFAULT);
-    $address = $_POST['addOw'];
-    $contact = $_POST['contOw'];
-    $district = $_POST['rolOw'];
-
-    $cheackuser = $conn->query("SELECT user FROM washwiseow WHERE user = '$username'");
-    if ($cheackuser->num_rows > 0){
-
-        $_SESSION['register_error']='Username is already registered';
-    } else{ 
-        $conn->query("INSERT INTO washwiseow( user, passwordOw, addressOw, contactOw, districtOw) VALUES ('$username','$password','$address','$contact','$district')");
-    }
-
-    header("Location: ownercreate.php");
-    exit();
-}
 
 ?>

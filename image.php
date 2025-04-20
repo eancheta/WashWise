@@ -6,11 +6,15 @@ if (isset($_POST["submit"])) {
     $fileName = $_FILES["image"]["name"];
     $password = password_hash ($_POST['passwOw'], PASSWORD_DEFAULT);
     $description = $_POST["description"];
+    $address = $_POST['cityOw'];
+    $district = $_POST['rolOw'];
 
     $sql = "CREATE TABLE `$fullName` (
-        name VARCHAR(255) NOT NULL,
-        TimeOfBooking VARCHAR(255) NOT NULL UNIQUE,
+        name VARCHAR(255) NOT NULL UNIQUE,
+        Brand_of_The_car VARCHAR(255) NOT NULL,
+        Size_of_the_car ENUM('Small', 'Medium', 'Large'),
         Contact_no VARCHAR(255) NOT NULL,
+        TimeOfBooking VARCHAR(255) NOT NULL UNIQUE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
 
@@ -28,7 +32,7 @@ if (isset($_POST["submit"])) {
 
     if (in_array(strtolower($ext), $allowedTypes)) {
         if (move_uploaded_file($tempName, $targetPath)) {
-            $query = "INSERT INTO profileowner (image, name, passwordOw, description) VALUES ('$uniqueName', '$fullName', '$password','$description')";
+            $query = "INSERT INTO profileowner (image, name, passwordOw, district, city, description) VALUES ('$uniqueName', '$fullName', '$password', '$district', '$address', '$description')";
             if (mysqli_query($conn, $query)) {
                 header("Location: Login.php");
                 exit();

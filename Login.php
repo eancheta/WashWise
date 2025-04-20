@@ -45,7 +45,7 @@ $error = [
 
     <section class="her">
 
-        <div class="gh" id="gh1">
+        <div class="gh active" id="gh1">
             <form class="form-box"  id="loginForm" method="post" action="log_in.php">
                 <h1>Login as Customer</h1>
 
@@ -101,7 +101,7 @@ $error = [
                 }
             ?>
 
-        <div class="gh active" id="gh2"> 
+        <div class="gh" id="gh2"> 
             <form class="form-box"  id="loginForm" method="post" action="login_owner.php">
                 <h1>Login as Owner</h1>
 
