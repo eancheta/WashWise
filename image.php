@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
     $sql = "CREATE TABLE `$fullName` (
         name VARCHAR(255) NOT NULL UNIQUE,
         Brand_of_The_car VARCHAR(255) NOT NULL,
-        Size_of_the_car ENUM('Small', 'Medium', 'Large'),
+        Size_of_the_car ENUM('Small', 'Medium', 'Large') NOT NULL,
         Contact_no VARCHAR(255) NOT NULL,
         TimeOfBooking VARCHAR(255) NOT NULL UNIQUE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

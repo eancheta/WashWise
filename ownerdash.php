@@ -1,17 +1,53 @@
 <?php
 session_start();
+require_once 'config.php';
+?>
 
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style_ownerdash.css">
+    <title>WashWise Dashboard</title>
+    </head>
+    <body>
+    <header>
+        <div class="logo"></div>
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" id="menuCheckbox">
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Student</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="user-section">
+            <label class="names">
+                <?= isset($_SESSION['username']) 
+                    ? htmlspecialchars($_SESSION['username']) 
+                    : 'Guest' ?>
+            </label>
+            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Icon">
+        </div>
+    </header>
+    <section>
+        <?php
 if (!isset($_SESSION['username']) || !isset($_SESSION['table'])) {
     header("Location: login.php");
     exit();
 }
 
 $username = $_SESSION['username'];
-$table = $_SESSION['table'];
+$table = preg_replace('/[^a-zA-Z0-9_]/', '', $_SESSION['table']);
 
 include_once("config.php");
-
-$table = preg_replace('/[^a-zA-Z0-9_]/', '', $table);
 
 $result = $conn->query("SELECT * FROM `$table`");
 
@@ -20,8 +56,18 @@ if (!$result) {
     exit();
 }
 
-echo "<h2>Welcome, " . htmlspecialchars($username) . "</h2>";
-echo "<table border='1'>";
+echo "<div class='gh'>";
+echo "<table class='customer'>";
+echo "<thead><tr>";
+echo "<th>Name  </th>
+      <th>Brand  </th>
+      <th>Size  </th>
+      <th>Contact Number </th>
+      <th>Time Of Booking</th>
+      <th>Time Created</th>";
+
+      
+echo "</tr></thead><tbody>";
 
 while ($row = $result->fetch_assoc()) {
     echo "<tr>";
@@ -30,6 +76,12 @@ while ($row = $result->fetch_assoc()) {
     }
     echo "</tr>";
 }
+echo "</tbody></table>";
 
-echo "</table>";
+echo "</div>";
 ?>
+
+    </section>
+    </body>
+
+</html>
