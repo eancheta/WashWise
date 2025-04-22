@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $_SESSION['login_error'] = '❌ Incorrect username or password';
+    $_SESSION['login_error'] = ' Incorrect username or password';
     $_SESSION['active_form'] = 'login';
     header("Location: Login.php");
     exit();

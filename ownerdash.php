@@ -9,8 +9,37 @@ require_once 'config.php';
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Style_ownerdash.css">
     <title>WashWise Dashboard</title>
+    <style>
+        th{
+            font-family: 'Barlow Condensed', sans-serif;
+            background:#232ab9 ;
+            color:whitesmoke;
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-size: 24px;
+            padding-top: 5px;
+            padding-bottom: 5px ;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .customer{
+            border: 1px solid black;
+            margin: auto;
+}
+
+        table,td,tr{
+            font-family: 'Barlow Condensed', sans-serif;
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-size: 24px;
+            padding: 10px;
+            background: white;
+        }
+    </style>
     </head>
     <body>
     <header>
@@ -62,7 +91,7 @@ echo "<thead><tr>";
 echo "<th>Name  </th>
       <th>Brand  </th>
       <th>Size  </th>
-      <th>Contact Number </th>
+      <th class = 'CN'>Contact Number </th>
       <th>Time Of Booking</th>
       <th>Time Created</th>";
 

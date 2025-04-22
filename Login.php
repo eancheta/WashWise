@@ -84,18 +84,29 @@ $error = [
                             top: 50%;
                             left: 50%;
                             transform: translate(-50%, -50%);
-                            background-color: #f44336;
-                            color: white;
+                            background: gray;
+                            backdrop-filter: blur(50px);
+                            color: black;
                             padding: 20px;
+                            border: 5px solid #378BA4;
                             border-radius: 8px;
                             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
                             z-index: 9999;
                             display: block;
-                            min-width: 250px;
-                            text-align: center;
+                            min-width: 350px;
+                            height:150px;
+                            margin-top: 10px;
                             '>
-                            <span>$error</span><br><br>
-                            <button onclick='document.getElementById(\"popupAlert\").style.display = \"none\"' style='padding: 5px 10px; border: none; background: white; color: #f44336; border-radius: 4px; cursor: pointer;'>Close</button>
+                            <i class='bx bxs-x-circle' style=' font-size: 50px; margin-left:-300px; '></i>
+                            <p style = 'margin-top: -34px;'> $error</p> <button onclick='document.getElementById(\"popupAlert\").style.display = \"none\"' style='
+                            padding: 5px 10px; 
+                            border: none; 
+                            margin-top: -5px;
+                            background: white; 
+                            color: black; 
+                            margin-left: 400px;
+                            border-radius: 4px; 
+                            cursor: pointer;'>X</button>
                             </div>";
                     unset($_SESSION['login_error']);
                 }

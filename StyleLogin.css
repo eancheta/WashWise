@@ -65,7 +65,7 @@ body {
     border-radius: 10px;
     padding: 30px 40px;
     text-align: center;
-    margin: 50px auto; /* This centers the form horizontally */
+    margin: 50px auto; 
     backdrop-filter: blur(50px);
     display: none;
     position: absolute; /* Add this */

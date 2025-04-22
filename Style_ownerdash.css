@@ -1,7 +1,8 @@
 
 body{
-background:#3533cd;
-background: linear-gradient(to right,
+
+    background:#3533cd;
+    background: linear-gradient(to right,
     rgba(0,0,0,1) 10%,
     rgb(38, 0, 255) 60%,
     rgb(40, 3, 250) 80%,
@@ -171,20 +172,6 @@ h2{
     margin: auto;
 }
 
-table,td,tr{
-    border: 1px solid black;
-    border-collapse: collapse;
-    font-size: 34px;
-    padding: 20px;
-    background: white;
-}
+    
 
-
-th{
-    background:#232ab9 ;
-    color:whitesmoke;
-    border: 1px solid black;
-    border-collapse: collapse;
-    font-size: 34px;
-}
 
