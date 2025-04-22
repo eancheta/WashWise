@@ -78,39 +78,40 @@ $error = [
         <div id="message">
             <?php 
                 if (isset($_SESSION['login_error'])) {
-                    $error = addslashes($_SESSION['login_error']); // Escape quotes
+                    $error = addslashes($_SESSION['login_error']);
                     echo "<div id='popupAlert' style='
                             position: fixed;
                             top: 50%;
                             left: 50%;
                             transform: translate(-50%, -50%);
-                            background: gray;
+                            background: #ECC8C5;
                             backdrop-filter: blur(50px);
                             color: black;
                             padding: 20px;
-                            border: 5px solid #378BA4;
+                            border: 5px solid#fa3625;
                             border-radius: 8px;
                             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
                             z-index: 9999;
                             display: block;
-                            min-width: 350px;
-                            height:150px;
+                            min-width: 440px;
+                            height:50px;
                             margin-top: 10px;
                             '>
-                            <i class='bx bxs-x-circle' style=' font-size: 50px; margin-left:-300px; '></i>
-                            <p style = 'margin-top: -34px;'> $error</p> <button onclick='document.getElementById(\"popupAlert\").style.display = \"none\"' style='
-                            padding: 5px 10px; 
+                            <i class='bx bxs-x-circle' style=' font-size: 45px; color:#fa3625; margin-left:-400px; '></i>
+                            <p style = 'margin-top: -34px; color:#fa3625'> $error<button onclick='document.getElementById(\"popupAlert\").style.display = \"none\"' style='
                             border: none; 
-                            margin-top: -5px;
-                            background: white; 
-                            color: black; 
-                            margin-left: 400px;
+                            margin-left: 100px;
+                            background: transparent; 
+                            font-size: 20px; 
+                            color: #fa5446; 
+                            font-weight: bold;
                             border-radius: 4px; 
-                            cursor: pointer;'>X</button>
+                            cursor: pointer;'>x</button></p> 
                             </div>";
                     unset($_SESSION['login_error']);
                 }
             ?>
+        </div>
 
         <div class="gh" id="gh2"> 
             <form class="form-box"  id="loginForm" method="post" action="login_owner.php">

@@ -1,5 +1,5 @@
 <?php
-// --- insert_process.php ---
+session_start();
 include_once("config.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -12,36 +12,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $sql = "INSERT INTO `$table` (name, Brand_of_The_car, Size_of_the_car, Contact_no, TimeOfBooking) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
+
+    if ($stmt === false) {
+        $_SESSION['alert_type'] = "error";
+        $_SESSION['alert_message'] = "SQL Error: " . $conn->error;
+        header("Location: dashboard.php");
+        exit();
+    }
+
     $stmt->bind_param("sssss", $name, $brandofcar, $Size, $contact, $booking);
 
     if ($stmt->execute()) {
-        echo "Successfully booked into $table!";  
-        if (isset($_SESSION['login_error'])) {
-            $error = addslashes($_SESSION['login_error']); // Escape quotes
-            echo "<div id='popupAlert' style='
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: trasparent;
-                    color: white;
-                    padding: 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                    z-index: 9999;
-                    display: block;
-                    min-width: 250px;
-                    text-align: center;
-                    '>
-                    <span>$error</span><br><br>
-                    <button onclick='document.getElementById(\"popupAlert\").style.display = \"none\"' style='padding: 5px 10px; border: none; background: white; color: #f44336; border-radius: 4px; cursor: pointer;'>Close</button>
-                    </div>";
-            unset($_SESSION['login_error']);
-        }
+        $_SESSION['alert_type'] = "success";
+        $_SESSION['alert_message'] = "Successfully booked into $table!";
     } else {
-        echo "Something went wrong: " . $stmt->error;
+        $_SESSION['alert_type'] = "error";
+        $_SESSION['alert_message'] = "Booking failed: " . $stmt->error;
     }
+
+    header("Location: dashboard.php");
+    exit();
 } else {
-    echo "Form not submitted.";
+    $_SESSION['alert_type'] = "error";
+    $_SESSION['alert_message'] = "Form not submitted.";
+    header("Location: dashboard.php");
+    exit();
 }
 ?>

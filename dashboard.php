@@ -7,8 +7,9 @@ require_once 'config.php';
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Style_dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>WashWise Dashboard</title>
 </head>
 <body>
@@ -38,36 +39,88 @@ require_once 'config.php';
     </header>
 
     <section>
-    <div class="container">    
-        <?php
-    include_once("config.php");
-    $query = "SELECT * FROM profileowner";
-    $result = mysqli_query($conn, $query);
+        <div class="container">    
+            <?php
+            $query = "SELECT * FROM profileowner";
+            $result = mysqli_query($conn, $query);
 
-    if ($result->num_rows>0) {
-        while($row = mysqli_fetch_array($result)){
-            $name = $row["name"];
-            $fileName = $row["image"];
-            $description = $row["description"];
-            $imageUrl = "uploads/".$fileName;
-            echo "<div class='profile'>";
-            echo "<img src='$imageUrl'>";
-            echo "<div class='info'>";
-            echo "<h3 class='nam'>$name</h3>";
-            echo "<h3 class='des'>$description</h3>";
-            echo "<form method='post' action='dash.php'>";
-            echo "<input type='hidden' name='brand_table' value='$name'>";
-            echo "<button type='submit' class='save-btn'>Book at $name</button>";
-            echo "</form>";
-            echo "</div>";
-            echo "</div>";
-        }
+            if ($result->num_rows > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $name = $row["name"];
+                    $fileName = $row["image"];
+                    $description = $row["description"];
+                    $imageUrl = "uploads/" . $fileName;
+                    echo "<div class='profile'>";
+                    echo "<img src='$imageUrl'>";
+                    echo "<div class='info'>";
+                    echo "<h3 class='nam'>$name</h3>";
+                    echo "<h3 class='des'>$description</h3>";
+                    echo "<form method='post' action='dash.php'>";
+                    echo "<input type='hidden' name='brand_table' value='$name'>";
+                    echo "<input type='hidden' name='name' value='John Doe'>";
+                    echo "<input type='hidden' name='Brand_car' value='Toyota'>";
+                    echo "<input type='hidden' name='size' value='Medium'>";
+                    echo "<input type='hidden' name='Contact' value='1234567890'>";
+                    echo "<input type='hidden' name='book' value='10:00 AM'>";
+                    echo "<button type='submit' class='save-btn'>Book at $name</button>";
+                    echo "</form>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            }
+            ?>
+        </div>
+    </section>
+    <?php 
+    if (!empty($_SESSION['alert_message'])) {
+        $message = $_SESSION['alert_message'];
+        $type = $_SESSION['alert_type'] ?? 'error';
+
+        $bgColor = $type === 'success' ? '#D4EDDA' : '#ECC8C5';
+        $borderColor = $type === 'success' ? '#28a745' : '#fa3625';
+        $textColor = $type === 'success' ? '#155724' : '#fa3625';
+        $icon = $type === 'success' ? 'bxs-check-circle' : 'bxs-x-circle';
+    ?>
+    <div id="popupAlert" style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: <?= $bgColor ?>;
+        color: <?= $textColor ?>;
+        padding: 20px;
+        border: 4px solid <?= $borderColor ?>;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 400px;
+        font-family: sans-serif;
+    ">
+        <i class='bx <?= $icon ?>' style='font-size: 32px; color: <?= $borderColor ?>;'></i>
+        <span style="flex: 1; font-size: 16px;"><?= htmlspecialchars($message) ?></span>
+        <button onclick="document.getElementById('popupAlert').style.display='none'" style="
+            background: transparent;
+            border: none;
+            color: <?= $borderColor ?>;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        ">x</button>
+    </div>
+    <?php 
+        unset($_SESSION['alert_message'], $_SESSION['alert_type']);
     }
     ?>
-    </div>
 
-
-    </section>
+    <script>
+        setTimeout(() => {
+            const alert = document.getElementById('popupAlert');
+            if (alert) alert.style.display = 'none';
+        }, 5000);
+    </script> 
 
 </body>
 </html>
