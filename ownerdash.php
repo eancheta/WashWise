@@ -63,6 +63,9 @@ require_once 'config.php';
                     ? htmlspecialchars($_SESSION['username']) 
                     : 'Guest' ?>
             </label>
+            <?php
+            
+            ?>
             <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Icon">
         </div>
     </header>
@@ -89,10 +92,10 @@ echo "<div class='gh'>";
 echo "<table class='customer'>";
 echo "<thead><tr>";
 echo "<th>Name  </th>
-      <th>Brand  </th>
-      <th>Size  </th>
+      <th>Vehicle types  </th>
       <th class = 'CN'>Contact Number </th>
       <th>Time Of Booking</th>
+      <th>Date Of Booking</th>
       <th>Time Created</th>";
 
       

@@ -5,12 +5,12 @@ include_once("config.php");
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $table = $_POST["brand_table"];
     $name = $_POST["name"];
-    $brandofcar = $_POST["Brand_car"];
     $Size = $_POST["size"];
     $contact = $_POST["Contact"];
     $booking = $_POST["book"];
+    $time = $_POST["time"];
 
-    $sql = "INSERT INTO `$table` (name, Brand_of_The_car, Size_of_the_car, Contact_no, TimeOfBooking) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO `$table` (name, Size_of_the_car, Contact_no, TimeOfBooking, DateOfBooking) VALUES ( ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if ($stmt === false) {
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
 
-    $stmt->bind_param("sssss", $name, $brandofcar, $Size, $contact, $booking);
+    $stmt->bind_param("sssss", $name, $Size, $contact, $time, $booking);
 
     if ($stmt->execute()) {
         $_SESSION['alert_type'] = "success";
