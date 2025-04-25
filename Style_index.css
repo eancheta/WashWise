@@ -60,15 +60,26 @@ body {
 }
 
 .section_2 {
-    min-height: 120vh;
-    padding: 100px 20px 20px;
+    min-height: 100vh;
+    font-weight: normal;
+    padding: 80px 20px 20px;
     display: flex;
+    margin: auto;
     background-color: #f8f9fa;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     scroll-snap-align: start;
     box-sizing: border-box;
+}
+
+.section_2 .her h1{
+    font-size: 70px;
+}
+
+.section_2 .her  p{
+    font-size: 25px;
+    line-height: 1.5;
 }
 
 .section_3 {

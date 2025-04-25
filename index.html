@@ -11,7 +11,7 @@
             
         </div>
             <a href="index.html"> Home </a>
-            <a href="About.HTML"> About </a>
+            <a href="#about"> About </a>
             <a href="SignUp.php"> Sign up </a>
         <div class="log">
             <a href="Login.php"> Sign in </a></div>
@@ -36,21 +36,21 @@
     </div>
         </section>
 
-        <section id="home" class="section_2">
+        <section id="about" class="section_2">
         <div class="her">
             <ol>
-                <h2>About Us</h2>
-                <P>"WashWise" is a third-party web-based application designed to streamline the car wash</P>
-                <P>appointment booking process by connecting customers with multiple registered car wash service</P>
-                <P>providers. Through this web-based application, users can conveniently check real-time</P>
-                <P>availability, compare services, and book appointments without the hassle of waiting in line,</P>
-                <P>especially during peak hours. The application provides up-to-date pricing, available slots, and</P>
-                <P>service options from various partnered car wash businesses, allowing customers to choose the</P>
-                <P>best option based on their preferences. Business owners can benefit from WashWise by</P>
-                <P>managing reservations, reducing walk-ins, and optimizing their service capacity, ultimately</P>
-                <P>improving operational efficiency. With automated scheduling and service updates, WashWise</P>
-                <P>enhances customer convenience while supporting car wash businesses in increasing their</P>
-                <P>visibility and profitability in a competitive market.</P>
+                <h1>About Us</h1>
+                <P class = "jjk">"WashWise" is a third-party web-based application designed to streamline the car wash<br>
+                appointment booking process by connecting customers with multiple registered car wash service<br>
+                providers. Through this web-based application, users can conveniently check real-time<br>
+                availability, compare services, and book appointments without the hassle of waiting in line,<br>
+                especially during peak hours. The application provides up-to-date pricing, available slots, and<br>
+                service options from various partnered car wash businesses, allowing customers to choose the<br>
+                best option based on their preferences. Business owners can benefit from WashWise by<br>
+                managing reservations, reducing walk-ins, and optimizing their service capacity, ultimately<br>
+                improving operational efficiency. With automated scheduling and service updates, WashWise<br>
+                enhances customer convenience while supporting car wash businesses in increasing their<br>
+                visibility and profitability in a competitive market.</P>
             </ol>
             </ol>
         </div>
@@ -71,6 +71,15 @@
             </div>
                 </section>
 
-    
+                <script>
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        anchor.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        });
+                    });
+                </script>
 
 </body>
