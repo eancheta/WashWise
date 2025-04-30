@@ -9,41 +9,40 @@ body{
     rgb(0, 35, 236)) 100%;
 }
 
-header{
+body {
+    background-color: #2b5b97;
+    margin: 0;
+    padding: 0;
+}
+
+header {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #f8f9fa;
     border-bottom: 1px solid #ccc;
-    height: 70px;
-    margin: -10px;
-    width: 99.9%;
+    height: 90px;
 }
 
 .user-section {
-    margin-top: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 4px;
-    margin-left: 750px;
-}
-
-.user-section .names label{
-
-    width: 50px;
-    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .user-section img {
-    margin-left: 85px;
-    margin-top: -40px;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: #0d4da2;
     padding: 4px;
-    align-items: center;
+}
+
+.user-section .names label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 11px;
 }
 
 

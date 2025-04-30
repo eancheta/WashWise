@@ -1,32 +1,23 @@
-body{
+body {
     background-color: #2b5b97;
+    margin: 0;
+    padding: 0;
 }
 
-header{
+header {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #f8f9fa;
     border-bottom: 1px solid #ccc;
     height: 90px;
-    margin: -10px;
-    width: 99.9%;
 }
 
 .user-section {
-    margin-top: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 4px;
-    margin-left: 750px;
-}
-
-.user-section .names label{
-    font-size: 20px;
-    font-weight: bold;
-    width: 50px;
-    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .user-section img {
@@ -38,9 +29,13 @@ header{
     border-radius: 50%;
     background-color: #0d4da2;
     padding: 4px;
-    align-items: center;
 }
 
+.user-section .names label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 11px;
+}
 
 #menuToggle {
     position: fixed;
@@ -64,7 +59,7 @@ header{
 
     #menuToggle input {
         width: 40px;
-        height: 22px;
+        height: 32px;
         position: absolute;
         top: -7px;
         left: -5px;
@@ -107,7 +102,7 @@ header{
     transform: rotate(-45deg) translate(0, -1px);
 }
 #menu {
-    max-width: 200px;
+    max-width: 400px;
     width: 100vw;
     max-height: 100vh;
     margin: -100px 0 0 -50px;
