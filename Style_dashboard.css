@@ -101,7 +101,7 @@ header {
     transform: rotate(-45deg) translate(0, -1px);
 }
 #menu {
-    max-width: 400px;
+    max-width: 200px;
     width: 100vw;
     max-height: 100vh;
     margin: -100px 0 0 -50px;
@@ -118,7 +118,9 @@ header {
 
 #menu li {
     padding: 10px 0;
-    font-size: 22px;
+    font-size: 19px;
+    color: black;
+    font-weight: bold;
 }
 
 #menu li label {

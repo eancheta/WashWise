@@ -1,28 +1,38 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include_once("config.php");
 
 $message = "";
+$success = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $table = preg_replace("/[^a-zA-Z0-9_]/", "", $_POST["cancel"]);
-    $nameToDelete = $_POST["Name"];
+    $nameToDelete = trim($_POST["Name"]);
 
-    if (!empty($table)) {
-        $sql = "DELETE FROM $table WHERE name = ?";
+    if (!empty($table) && !empty($nameToDelete)) {
+        $sql = "DELETE FROM `$table` WHERE name = ?";
         $stmt = $conn->prepare($sql);
 
         if ($stmt) {
             $stmt->bind_param("s", $nameToDelete);
             if ($stmt->execute()) {
-                $message = "✅ Record with name '" . htmlspecialchars($nameToDelete) . "' deleted from '$table'.";
+                if ($stmt->affected_rows > 0) {
+                    $message = "✅ Record with name '" . htmlspecialchars($nameToDelete) . "' deleted from '$table'.";
+                    $success = true;
+                } else {
+                    $message = "⚠️ No matching record found.";
+                }
             } else {
-                $message = "❌ Deletion failed: " . $stmt->error;
+                $message = "❌ Execute failed: " . $stmt->error;
             }
         } else {
-            $message = "❌ Invalid table or SQL error: " . $conn->error;
+            $message = "❌ Prepare failed: " . $conn->error;
         }
     } else {
-        $message = "❌ Table name is invalid or empty.";
+        $message = "❌ Please enter a valid table and name.";
     }
+
+    header("Location: ownerdash.php");
 }
 ?>

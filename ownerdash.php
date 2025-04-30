@@ -4,34 +4,30 @@ require_once 'config.php';
 ?>
 
 <!DOCTYPE html>
-
 <html>
-    <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Style_ownerdash.css">
     <title>WashWise Dashboard</title>
     <style>
-        th{
+        th {
             font-family: 'Barlow Condensed', sans-serif;
-            background:#232ab9 ;
-            color:whitesmoke;
+            background: #232ab9;
+            color: whitesmoke;
             border: 1px solid black;
             border-collapse: collapse;
             font-size: 24px;
-            padding-top: 5px;
-            padding-bottom: 5px ;
-            padding-left: 30px;
-            padding-right: 30px;
+            padding: 5px 30px;
         }
 
-        .customer{
+        .customer {
             border: 1px solid black;
             margin: auto;
-}
+        }
 
-        table,td,tr{
+        table, td, tr {
             font-family: 'Barlow Condensed', sans-serif;
             border: 1px solid black;
             border-collapse: collapse;
@@ -39,38 +35,50 @@ require_once 'config.php';
             padding: 10px;
             background: white;
         }
-    </style>
-    </head>
-    <body>
-    <header>
-        <div class="logo"></div>
-        <nav role="navigation">
-            <div id="menuToggle">
-                <input type="checkbox" id="menuCheckbox">
-                <span></span>
-                <span></span>
-                <span></span>
-                <ul id="menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Student</a></li>
-                </ul>
-            </div>
-        </nav>
 
-        <div class="user-section">
-            <label class="names" style="font-size: 25px; font-weight: bold;">
-                <?= isset($_SESSION['username']) 
-                    ? htmlspecialchars($_SESSION['username']) 
-                    : 'Guest' ?>
-            </label>
-            <?php
-            
-            ?>
-            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Icon">
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo"></div>
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" id="menuCheckbox">
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Student</a></li>
+            </ul>
         </div>
-    </header>
-    <section>
-        <?php
+    </nav>
+
+    <div class="user-section">
+        <label class="names" style="font-size: 25px; font-weight: bold;">
+            <?= isset($_SESSION['username']) 
+                ? htmlspecialchars($_SESSION['username']) 
+                : 'Guest' ?>
+        </label>
+        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Icon">
+    </div>
+</header>
+
+<section>
+<?php
 if (!isset($_SESSION['username']) || !isset($_SESSION['table'])) {
     header("Location: login.php");
     exit();
@@ -91,14 +99,13 @@ if (!$result) {
 echo "<div class='gh'>";
 echo "<table class='customer'>";
 echo "<thead><tr>";
-echo "<th>Name  </th>
-      <th>Vehicle types  </th>
-      <th class = 'CN'>Contact Number </th>
+echo "<th>Name</th>
+      <th>Vehicle types</th>
+      <th class='CN'>Contact Number</th>
       <th>Time Of Booking</th>
       <th>Date Of Booking</th>
-      <th>Time Created</th>";
-
-      
+      <th>Time Created</th>
+      <th>Action</th>";
 echo "</tr></thead><tbody>";
 
 while ($row = $result->fetch_assoc()) {
@@ -106,14 +113,23 @@ while ($row = $result->fetch_assoc()) {
     foreach ($row as $col) {
         echo "<td>" . htmlspecialchars($col) . "</td>";
     }
-    echo "</tr>";
-}
-echo "</tbody></table>";
+    echo "<td>
+            <form method='post' action='cancelbooking.php' onsubmit=\"return confirm('Are you sure you want to cancel this booking?');\">
+                <input type='hidden' name='cancel' value='" . htmlspecialchars($table) . "'>
+                <input type='hidden' name='Name' value='" . htmlspecialchars($row['name']) . "'>
+                <input type='hidden' name='reason' value='Owner deleted from dashboard'>
+                <button type='submit' class='delete-btn'>Cancel</button>
+            </form>
+          </td>";
 
+    echo "</tr>";
+
+    
+}
+
+echo "</tbody></table>";
 echo "</div>";
 ?>
-
-    </section>
-    </body>
-
+</section>
+</body>
 </html>
