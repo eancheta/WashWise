@@ -20,6 +20,7 @@ $tableName = $_POST['brand_table'] ?? $_SESSION['brand_table'] ?? null;
         <div class="logo"></div>
         <a href="dashboard.php"> Home </a>
     </div>
+    
 </header>
 
 <section>

@@ -25,14 +25,14 @@ body {
 .navbar a {
     text-decoration: none;
     color: black;
-    margin: 0 10px; /* Fixed negative margin */
+    margin: 0 10px;
 }
 
 .navbar .log {
     text-align: center;
     width: 80px;
     height: 30px;
-    padding: 9px 0 0 0; /* Fixed padding */
+    padding: 9px 0 0 0;
     border: 2px solid #378BA4;
     background-color: #378BA4;
     border-radius: 5px;
@@ -65,7 +65,8 @@ body {
     padding: 80px 20px 20px;
     display: flex;
     margin: auto;
-    background-color: #f8f9fa;
+    color: white;
+    background:    rgba(0, 0, 0, 0.76);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -99,6 +100,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    border-radius: 20px;
 }
 
 span.accent-1 {  
@@ -108,10 +110,11 @@ span.accent-1 {
     text-align: center;
     font-size: 60px;
     font-weight: 900;
+   
 }
 
 span.accent-2 { 
-    color: #2b5697;
+    color: whitesmoke;
     padding: 0 20px;
     margin-bottom: 20px;
     text-align: center;
@@ -124,8 +127,8 @@ span.accent-2 {
     margin: 20px auto 0;
     width: 170px;
     height: 40px;
-    border: 2px solid #378BA4;
-    background-color: #378BA4;
+    border: 2px solid #2B5B97;
+    background-color: #2B5B97;
     border-radius: 5px;
 }
 

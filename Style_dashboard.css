@@ -64,7 +64,7 @@ header{
 
     #menuToggle input {
         width: 40px;
-        height: 32px;
+        height: 22px;
         position: absolute;
         top: -7px;
         left: -5px;
@@ -107,7 +107,7 @@ header{
     transform: rotate(-45deg) translate(0, -1px);
 }
 #menu {
-    max-width: 400px;
+    max-width: 200px;
     width: 100vw;
     max-height: 100vh;
     margin: -100px 0 0 -50px;
