@@ -58,7 +58,7 @@ require_once 'config.php';
         </nav>
 
         <div class="user-section">
-            <label class="names">
+            <label class="names" style="font-size: 25px; font-weight: bold;">
                 <?= isset($_SESSION['username']) 
                     ? htmlspecialchars($_SESSION['username']) 
                     : 'Guest' ?>
