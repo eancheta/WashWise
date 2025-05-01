@@ -32,7 +32,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         $message = "❌ Please enter a valid table and name.";
     }
-
-    header("Location: ownerdash.php");
 }
 ?>

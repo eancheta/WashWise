@@ -22,18 +22,14 @@
                     <textarea id="can" name="reason" required></textarea>
                 </div>
                 <button class="save-btn" name="can">Cancel Now</button>
-
-                <?php if ($message): ?>
-                    <p><strong><?= htmlspecialchars($message) ?></strong></p>
-                <?php endif; ?>
             </form>
         </div>
     </section>
 
-    <?php if ($success): ?>
+    <!-- <?php if ($success): ?>
     <script>
         alert("✅ Booking successfully canceled.");
     </script>
-    <?php endif; ?>
+    <?php endif; ?> -->
 </body>
 </html>
