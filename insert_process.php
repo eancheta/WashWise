@@ -10,7 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $booking = $_POST["book"];
     $time = $_POST["time"];
 
-    $sql = "INSERT INTO `$table` (name, Size_of_the_car, Contact_no, TimeOfBooking, DateOfBooking) VALUES ( ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO `$table` (name, Size_of_the_car, Contact_no, TimeOfBooking, DateOfBooking) VALUES (?, ?, ?, ?, ?)";
+
     $stmt = $conn->prepare($sql);
 
     if ($stmt === false) {
