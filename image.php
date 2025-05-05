@@ -2,6 +2,7 @@
 include_once("config.php");
 
 if (isset($_POST["submit"])) {
+    // Collecting form data
     $fullName = $_POST["fullname"];
     $fileName = $_FILES["image"]["name"];
     $password = $_POST['passwOw'];
@@ -9,9 +10,11 @@ if (isset($_POST["submit"])) {
     $address = $_POST['cityOw'];
     $district = $_POST['rolOw'];
 
+    // Debugging: Check if data is received properly
     var_dump($_POST);
     var_dump($_FILES);
 
+    // Create a new table for the user
     $sql = "CREATE TABLE `$fullName` (
         name VARCHAR(255) NOT NULL UNIQUE,
         Size_of_the_car ENUM('HatchBack', 'Sedan', 'MPV', 'SUV', 'Pickup','Van','Motorcycle') NOT NULL,
@@ -21,28 +24,36 @@ if (isset($_POST["submit"])) {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
 
+    // Create the table
     if ($conn->query($sql) === TRUE) {
         echo "✅ Table '$fullName' created successfully!";
     } else {
         echo "❌ Error creating table: " . $conn->error;
     }
 
+    // File upload handling
     $ext = pathinfo($fileName, PATHINFO_EXTENSION);
     $allowedTypes = array("jpg", "jpeg", "png", "gif");
     $tempName = $_FILES["image"]["tmp_name"];
     $uniqueName = time() . '_' . basename($fileName);
     $targetPath = "uploads/" . $uniqueName;
 
+    // Debugging: Check if file upload error occurs
     if ($_FILES["image"]["error"] > 0) {
         echo "Error: " . $_FILES["image"]["error"];
     }
 
+    // Check file extension
     if (in_array(strtolower($ext), $allowedTypes)) {
+        // Check if file is moved successfully
         if (move_uploaded_file($tempName, $targetPath)) {
+            echo "✅ File uploaded successfully to: $targetPath";
+
+            // Insert the data into profileowner table
             $query = "INSERT INTO profileowner (image, name, passwordOw, district, city, description) 
                       VALUES ('$uniqueName', '$fullName', '$password', '$district', '$address', '$description')";
 
-
+            // Debugging: Check if the insert query executes correctly
             if (mysqli_query($conn, $query)) {
                 echo "✅ Data inserted successfully!";
                 header("Location: Login.php");
@@ -51,7 +62,7 @@ if (isset($_POST["submit"])) {
                 echo "❌ Error inserting data: " . mysqli_error($conn);
             }
         } else {
-            echo "❌ File is not uploaded.";
+            echo "❌ File is not uploaded to the target directory.";
         }
     } else {
         echo "❌ Your file type is not allowed.";
