@@ -55,7 +55,6 @@ body {
     padding: 100px 20px 20px;
     display: flex;
     background-color: transparent;
-    backdrop-filter: blur(10px);
     flex-direction: column;
     justify-content: center;
     align-items: center;
