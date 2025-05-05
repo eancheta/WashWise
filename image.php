@@ -4,7 +4,7 @@ include_once("config.php");
 if (isset($_POST["submit"])) {
     $fullName = $_POST["fullname"];
     $fileName = $_FILES["image"]["name"];
-    $password = password_hash ($_POST['passwOw'], PASSWORD_DEFAULT);
+    $password = $_POST['passwOw'];
     $description = $_POST["description"];
     $address = $_POST['cityOw'];
     $district = $_POST['rolOw'];
