@@ -62,7 +62,7 @@ require_once 'config.php';
             <span></span>
             <ul id="menu">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Student</a></li>
+                <li><a href="Login.php">Log Out</a></li>
             </ul>
         </div>
     </nav>

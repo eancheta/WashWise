@@ -22,9 +22,9 @@ require_once 'config.php';
                 <span></span>
                 <span></span>
                 <ul id="menu">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="dashboard.php">Home</a></li>
                     <li><a href="Cancel.php">Cancel booking</a></li>
-                    <li><a href="#">Student</a></li>
+                    <li><a href="Login.php">Log Out</a></li>
                 </ul>
             </div>
         </nav>
