@@ -9,6 +9,9 @@ if (isset($_POST["submit"])) {
     $address = $_POST['cityOw'];
     $district = $_POST['rolOw'];
 
+    var_dump($_POST);
+    var_dump($_FILES);
+
     $sql = "CREATE TABLE `$fullName` (
         name VARCHAR(255) NOT NULL UNIQUE,
         Size_of_the_car ENUM('HatchBack', 'Sedan', 'MPV', 'SUV', 'Pickup','Van','Motorcycle') NOT NULL,
@@ -19,8 +22,7 @@ if (isset($_POST["submit"])) {
     )";
 
     if ($conn->query($sql) === TRUE) {
-        echo "✅ Table '$fullName' created successfully with UNIQUE email!";
-        header("Location: Login.php");
+        echo "✅ Table '$fullName' created successfully!";
     } else {
         echo "❌ Error creating table: " . $conn->error;
     }
@@ -31,24 +33,30 @@ if (isset($_POST["submit"])) {
     $uniqueName = time() . '_' . basename($fileName);
     $targetPath = "uploads/" . $uniqueName;
 
+    if ($_FILES["image"]["error"] > 0) {
+        echo "Error: " . $_FILES["image"]["error"];
+    }
+
     if (in_array(strtolower($ext), $allowedTypes)) {
         if (move_uploaded_file($tempName, $targetPath)) {
-            $query = "INSERT INTO profileowner (image, name, passwordOw, district, city, description) VALUES ('$uniqueName', '$fullName', '$password', '$district', '$address', '$description')";
+            $query = "INSERT INTO profileowner (image, name, passwordOw, district, city, description) 
+                      VALUES ('$uniqueName', '$fullName', '$password', '$district', '$address', '$description')";
+
+
             if (mysqli_query($conn, $query)) {
+                echo "✅ Data inserted successfully!";
                 header("Location: Login.php");
                 exit();
             } else {
-                echo "Something is wrong with the DB insert.";
+                echo "❌ Error inserting data: " . mysqli_error($conn);
             }
         } else {
-            echo "File is not uploaded.";
+            echo "❌ File is not uploaded.";
         }
     } else {
-        echo "Your file type is not allowed.";
+        echo "❌ Your file type is not allowed.";
     }
 } else {
-    echo "Form not submitted properly.";
+    echo "❌ Form not submitted properly.";
 }
-
-  
 ?>
