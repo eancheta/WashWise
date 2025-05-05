@@ -5,7 +5,7 @@ if (isset($_POST["submit"])) {
 
     $fullName = $_POST["fullname"];
     $fileName = $_FILES["image"]["name"];
-    $password = $_POST['passwOw'];
+    $password = password_hash ($_POST['passwOw'], PASSWORD_DEFAULT);
     $description = $_POST["description"];
     $address = $_POST['cityOw'];
     $district = $_POST['rolOw'];
