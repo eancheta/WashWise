@@ -20,6 +20,7 @@ if (isset($_POST["submit"])) {
 
     if ($conn->query($sql) === TRUE) {
         echo "✅ Table '$fullName' created successfully with UNIQUE email!";
+        header("Location: Login.php");
     } else {
         echo "❌ Error creating table: " . $conn->error;
     }
