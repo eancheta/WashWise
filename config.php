@@ -13,4 +13,16 @@ if (!mysqli_real_connect($conn, $host, $user, $password, $database, 3306, NULL, 
     die("Connection error: " . mysqli_connect_error());
 }
 
+/*
+$host = "localhost";
+ $user = "root";
+ $password = "";
+ $database = "washwise";
+ $database = "test";
+ 
+ $conn = new mysqli($host, $user, $password, $database);
+ if ($conn->connect_error) { 
+     die("Connecttion failed: ". $conn->connect_error);
+ }
+ */
 ?>
