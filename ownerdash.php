@@ -45,7 +45,7 @@ require_once 'config.php';
             font-size: 16px;
             cursor: pointer;
         }
-        .delete-btn {
+        .finish {
             background-color: limegreen;
             color: black;
             border: none;
