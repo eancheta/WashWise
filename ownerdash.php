@@ -45,9 +45,14 @@ require_once 'config.php';
             font-size: 16px;
             cursor: pointer;
         }
-
-        .delete-btn:hover {
-            background-color: darkred;
+        .delete-btn {
+            background-color: limegreen;
+            color: black;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
