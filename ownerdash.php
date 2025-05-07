@@ -120,11 +120,10 @@ while ($row = $result->fetch_assoc()) {
                 <input type='hidden' name='Name' value='" . htmlspecialchars($row['name']) . "'>
                 <input type='hidden' name='reason' value='Owner deleted from dashboard'>
                 <button type='submit' class='delete-btn'>Cancel</button>
+                
             </form>
+            <button type='submit' class='finish'>Finish</button>
           </td>";
-
-          echo "<td>Finish</td>";
-
     echo "</tr>";
 
     
