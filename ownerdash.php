@@ -61,7 +61,8 @@ require_once 'config.php';
             <span></span>
             <span></span>
             <ul id="menu">
-                <li><a href="#">Home</a></li>
+                <li><a href="ownerdash.php">Home</a></li>
+                <li><a href="reportpage.php">Reports</a></li>
                 <li><a href="Login.php">Log Out</a></li>
             </ul>
         </div>
@@ -121,6 +122,8 @@ while ($row = $result->fetch_assoc()) {
                 <button type='submit' class='delete-btn'>Cancel</button>
             </form>
           </td>";
+
+          echo "<td>Finish</td>";
 
     echo "</tr>";
 
