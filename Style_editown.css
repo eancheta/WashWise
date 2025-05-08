@@ -150,7 +150,7 @@ section{
 
 .container{
     width: 60%;
-    height: 500px;
+    height: 650px;
     margin-left: 20px;
     margin-top: -2%;
     background-color: #f1f3fa;
@@ -161,12 +161,25 @@ section{
     height: 500px;
     margin-left: 30px;
     background-color: #f1f3fa;
-    background-image: url('pro.png');
+    background-image: url('editown.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 25px;
     align-items: baseline;
+    }
+    .btn0 {
+        position: absolute;
+        bottom: 130px;
+        right: 32%;
+        height: 45px;
+        width: 15%;
+        background: #378BA4;
+        outline: none;
+        border: 2px solid black;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 20px;
     }
     
     

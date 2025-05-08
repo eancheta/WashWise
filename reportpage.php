@@ -129,6 +129,7 @@ require_once 'config.php';
             <ul id="menu">
                 <li><a href="ownerdash.php">Home</a></li>
                 <li><a href="reportpage.php">Reports</a></li>
+                <li><a href="profowner.php">Profile</a></li>
                 <li><a href="Login.php">Log Out</a></li>
             </ul>
         </div>

@@ -8,7 +8,7 @@ require_once 'config.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="profileowner.css">
+    <link rel="stylesheet" href="Style_editown.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>WashWise Dashboard</title>
 </head>
@@ -35,8 +35,14 @@ require_once 'config.php';
 
     <section>
         <div class="container">
-            <div class="pro"></div>   
+            <div class="pro"></div>
+            <button type="submit" class="btn0" name="loginOw" onclick="Edit()">Save Profile</button>   
         </div>
     </section>
 </body>
+<script>
+function Edit() {
+  window.location.href = "profowner.php";
+}
+</script>
 </html>

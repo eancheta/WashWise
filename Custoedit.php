@@ -8,7 +8,7 @@ require_once 'config.php';
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Style_Cancel.css">
+    <link rel="stylesheet" href="Style_Custoedit.css">
     <title>Cancel Booking</title>
 </head>
 <body>
@@ -41,24 +41,16 @@ require_once 'config.php';
     </header>
 
     <section>
-        <div class="gh">
-            <form class="form_reg" id="loginForm" method="post" enctype="multipart/form-data" action="cancelbooking.php">
-                <input type="text" class="Input" name="cancel" placeholder="Enter The store name:" required><br>
-                <label> </label><br>
-                <input type="text" class="Input" name="Name" placeholder="Name:" required><br>
-                <div class="form-group">
-                    <label for="reason">Reason of canceling</label><br>
-                    <textarea id="can" name="reason" required></textarea>
-                </div>
-                <button class="save-btn" name="can">Cancel Now</button>
-            </form>
+    <div class="container">
+            <div class="pro"></div>
+        <button type="submit" class="btn0" name="loginOw" onclick="Edit()">Save Profile</button>    
         </div>
     </section>
 
-    <!-- <?php if ($success): ?>
     <script>
-        alert("✅ Booking successfully canceled.");
-    </script>
-    <?php endif; ?> -->
+function Edit() {
+  window.location.href = "Customerprof.php";
+}
+</script>
 </body>
 </html>
