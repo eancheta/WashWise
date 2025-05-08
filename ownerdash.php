@@ -127,7 +127,7 @@ while ($row = $result->fetch_assoc()) {
                 <button type='submit' class='delete-btn'>Cancel</button>
                 
             </form>
-            <button type='submit' class='finish'>Finish</button>
+            <button type='submit' class='finish'>Done</button>
           </td>";
     echo "</tr>";
 

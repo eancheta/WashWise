@@ -50,7 +50,7 @@ $error = [
                 <h1>Login as Customer</h1>
 
                 <div class="Input">
-                    <input type="text"  placeholder="Username" name="username" required>
+                    <input type="text"  placeholder="Email" name="username" required>
                     <i class='bx bxs-user-circle'></i>
                 </div>
 
@@ -118,7 +118,7 @@ $error = [
                 <h1>Login as Owner</h1>
 
                 <div class="Input">
-                    <input type="text"  placeholder="Username" name="username" required>
+                    <input type="text"  placeholder="Email" name="username" required>
                     <i class='bx bxs-user-circle'></i>
                 </div>
 

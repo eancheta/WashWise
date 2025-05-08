@@ -1,0 +1,136 @@
+<?php
+session_start();
+require_once 'config.php';
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style_ownerdash.css">
+    <title>WashWise Dashboard</title>
+    <style>
+        th {
+            font-family: 'Barlow Condensed', sans-serif;
+            background: #232ab9;
+            color: whitesmoke;
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-size: 24px;
+            padding: 5px 30px;
+        }
+
+        .customer {
+            border: 1px solid black;
+            margin: auto;
+        }
+
+        table, td, tr {
+            font-family: 'Barlow Condensed', sans-serif;
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-size: 24px;
+            padding: 10px;
+            background: white;
+        }
+
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .finish {
+            background-color: limegreen;
+            color: black;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo"></div>
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" id="menuCheckbox">
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <li><a href="ownerdash.php">Home</a></li>
+                <li><a href="reportpage.php">Reports</a></li>
+                <li><a href="Login.php">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="user-section">
+        <label class="names" style="font-size: 25px; font-weight: bold;">
+            <?= isset($_SESSION['username']) 
+                ? htmlspecialchars($_SESSION['username']) 
+                : 'Guest' ?>
+        </label>
+        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Icon">
+    </div>
+</header>
+
+<section>
+<?php
+if (!isset($_SESSION['username']) || !isset($_SESSION['table'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$username = $_SESSION['username'];
+$table = preg_replace('/[^a-zA-Z0-9_]/', '', $_SESSION['table']);
+
+include_once("config.php");
+
+$result = $conn->query("SELECT * FROM `$table`");
+
+if (!$result) {
+    echo "❌ Failed to fetch data: " . $conn->error;
+    exit();
+}
+
+echo "<div class='gh'>";
+echo "<table class='customer'>";
+echo "<thead><tr>";
+echo "<th>Name</th>
+      <th>Vehicle types</th>
+      <th class='CN'>Contact Number</th>
+      <th>Time Of Booking</th>
+      <th>Date Of Booking</th>
+      <th>Time Created</th>
+      <th>Remarks</th>";
+echo "</tr></thead><tbody>";
+
+while ($row = $result->fetch_assoc()) {
+    echo "<tr>";
+    echo "<td></td>";
+    echo "<td></td>";
+    echo "<td></td>";
+    echo "<td></td>";
+    echo "<td></td>";
+    echo "<td></td>";
+    echo "<td></td>";
+    echo "</tr>";
+
+    
+}
+
+echo "</tbody></table>";
+echo "</div>";
+?>
+</section>
+</body>
+</html>

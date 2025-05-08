@@ -131,10 +131,6 @@ header {
     transform: none;
 }
 
-h1 {
-    font-size: 36px;
-    text-align: center;
-}
 .logo {
     height: 200px;
     width: 600px;
@@ -147,64 +143,46 @@ h1 {
 }
 
 section{
+    margin-left: 25%;
+    margin-top: 3%;
     align-items: center;
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-
 }
+
 .container{
-    max-width: 100%;
+    width: 60%;
     height: 650px;
-    background-color: #ededed;
+    margin-left: 20px;
+    margin-top: -2%;
+    background-color: #f1f3fa;
+}
+
+.pro{
+    width: 90%;
+    height: 500px;
+    margin-left: 30px;
+    background-color: #f1f3fa;
+    background-image: url('pro.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 25px;
-    overflow: scroll;
+    align-items: baseline;
     }
-    .profile {
-        display: flex;
-        align-items: flex-start;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        gap: 20px;
-    }
-    
-    .profile .info {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        max-width: 100%;
-    }
-    
-    .profile .nam {
-        margin: 0;
-        font-size: 18px;
+    .btn0 {
+        position: absolute;
+        bottom: 110px;
+        right: 32%;
+        height: 45px;
+        width: 15%;
+        background: #378BA4;
+        outline: none;
+        border: 2px solid black;
+        border-radius: 10px;
         font-weight: bold;
+        font-size: 20px;
     }
     
-    .profile .des {
-        margin: 0;
-        font-size: 18px;
-        word-wrap: break-word;
-        white-space: normal;
-    }
     
-    .save-btn {
-        align-self: flex-start;
-        padding: 8px 16px;
-        background-color: #1e4b8c;
-        color: white;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-    }
     
-.profile img{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
-    aspect-ratio: 1 / 1;
-    background-color: #ccc;
-    }
+
     

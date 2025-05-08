@@ -14,7 +14,7 @@
     <section>
         <div class="gh">
             <form class="form_reg" id="loginForm" method="post" enctype="multipart/form-data" action="image.php">
-                <h2>Create Profile</h2>
+                <h2>Register as Owner</h2>
 
                 <div class="profile-photo"></div>
                 <div class="add-photo">Add Photo <span>➕</span>
@@ -22,7 +22,7 @@
                 </div>
           
                 <div class="form-group">
-                  <input type="text" id="brand-name" placeholder="Car wash brand " name="fullname" required/>
+                  <input type="text" id="brand-name" placeholder="Email " name="fullname" required/>
                 </div>
 
                 <div class="form-group">
@@ -52,6 +52,11 @@
                         <option value="">-- Select Barangay --</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <input type="text"  placeholder="Full Address" name="address" required>
+                </div>
+
           
                 <button class="save-btn" name="submit">Save</button>
             </form>
