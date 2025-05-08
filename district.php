@@ -8,7 +8,7 @@ require_once 'config.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="Style_dashboard.css">
+    <link rel="stylesheet" href="Style_disctrict.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>WashWise Dashboard</title>
 </head>
@@ -23,7 +23,6 @@ require_once 'config.php';
                 <span></span>
                 <ul id="menu">
                     <li><a href="dashboard.php">Home</a></li>
-                    <li><a href="#">Profile</a></li>
                     <li><a href="Cancel.php">Cancel booking</a></li>
                     <li><a href="district.php">District-Based Car Wash Listing</a></li>
                     <li><a href="Login.php">Log Out</a></li>
@@ -69,56 +68,6 @@ require_once 'config.php';
             ?>
         </div>
     </section>
-    <?php 
-    if (!empty($_SESSION['alert_message'])) {
-        $message = $_SESSION['alert_message'];
-        $type = $_SESSION['alert_type'] ?? 'error';
-
-        $bgColor = $type === 'success' ? '#D4EDDA' : '#ECC8C5';
-        $borderColor = $type === 'success' ? '#28a745' : '#fa3625';
-        $textColor = $type === 'success' ? '#155724' : '#fa3625';
-        $icon = $type === 'success' ? 'bxs-check-circle' : 'bxs-x-circle';
-    ?>
-    <div id="popupAlert" style="
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: <?= $bgColor ?>;
-        color: <?= $textColor ?>;
-        padding: 20px;
-        border: 4px solid <?= $borderColor ?>;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        min-width: 400px;
-        font-family: sans-serif;
-    ">
-        <i class='bx <?= $icon ?>' style='font-size: 32px; color: <?= $borderColor ?>;'></i>
-        <span style="flex: 1; font-size: 16px;"><?= htmlspecialchars($message) ?></span>
-        <button onclick="document.getElementById('popupAlert').style.display='none'" style="
-            background: transparent;
-            border: none;
-            color: <?= $borderColor ?>;
-            font-size: 20px;
-            cursor: pointer;
-            font-weight: bold;
-        ">x</button>
-    </div>
-    <?php 
-        unset($_SESSION['alert_message'], $_SESSION['alert_type']);
-    }
-    ?>
-
-    <script>
-        setTimeout(() => {
-            const alert = document.getElementById('popupAlert');
-            if (alert) alert.style.display = 'none';
-        }, 5000);
-    </script> 
 
 </body>
 </html>
