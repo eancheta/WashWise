@@ -1,5 +1,5 @@
 body {
-    background-color: #2b5b97;
+    background-color: #f1f3fa;
     margin: 0;
     padding: 0;
 }
@@ -34,7 +34,6 @@ header {
     font-size: 20px;
     font-weight: bold;
 }
-
 
 #menuToggle {
     position: fixed;
@@ -93,16 +92,17 @@ header {
         transform: rotate(45deg) translate(-2px, -1px);
         background: #232323;
     }
-        #menuToggle input:checked ~ span:nth-last-child(3) {
-            opacity: 0;
-            transform: rotate(0deg) scale(0.2, 0.2);
-        }
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
 #menuToggle input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
 }
 #menu {
-    max-width: 400px;
-    width: 100vw;
+    max-width: 200px;
+    width: 40vw;
     max-height: 100vh;
     margin: -100px 0 0 -50px;
     padding: 50px;

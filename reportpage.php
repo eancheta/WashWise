@@ -9,9 +9,14 @@ require_once 'config.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="Style_ownerdash.css">
     <title>WashWise Dashboard</title>
     <style>
+
+        body{
+            background-color: #f1f3fa;
+        }
         th {
             font-family: 'Barlow Condensed', sans-serif;
             background: #232ab9;
@@ -54,6 +59,62 @@ require_once 'config.php';
             font-size: 16px;
             cursor: pointer;
         }
+
+        .dat{
+            margin-top: 20px;
+        }
+        .texts{
+            margin-left: 8%;
+            color: #0b14d6;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .To{
+            margin-left: 10.5%;
+        }
+
+        .Inp{
+            margin-left: 8%;
+        }
+
+        .Inpu{
+            width: 12%;
+            height: 10%;
+            font-size: 19px;
+            font-weight: bold;
+            border: none;
+        }
+
+        .Inpu::placeholder{
+            color: #0b14d6;
+        }
+
+        .Input{
+            width: 12%;
+            height: 10%;
+            font-size: 19px;
+            font-weight: bold;
+            border: none;
+            margin-left: 1%;
+        }
+        .Input::placeholder{
+            color: #0b14d6;
+        }
+
+        .btn0 {
+            margin-left: 2%;
+            width: 7%;
+            height: 10%;
+            font-size: 19px;
+            font-weight: bold;
+            color: white;
+    background: #0b14d6;
+    border: 2px solid black;
+    border-radius: 40px;
+
+}
+
     </style>
 </head>
 <body>
@@ -84,6 +145,24 @@ require_once 'config.php';
 </header>
 
 <section>
+<div class="dat">
+  <div class = "texts">
+    <label class="From">From</labe>
+    <label class="To">To</label>
+    
+  </div>
+  <div class="Inp">
+    <input id="dateHack" type="text" placeholder="Select a start date" class="Inpu" required>
+    <i class='bx bx-calendar'></i>
+    <input id="date"     type="text" placeholder="Select a end date"   class="Input" required>
+    <i class='bx bx-calendar'></i>
+
+    <button type="submit" class="btn0" name="loginOw">Generate</button> 
+  </div>  
+
+ 
+</div>
+
 <?php
 if (!isset($_SESSION['username']) || !isset($_SESSION['table'])) {
     header("Location: login.php");
@@ -132,5 +211,26 @@ echo "</tbody></table>";
 echo "</div>";
 ?>
 </section>
+
+<script>
+  const inputs = [document.getElementById('dateHack'), document.getElementById('date')];
+
+  inputs.forEach(input => {
+    input.addEventListener('focus', () => {
+      input.type = 'date';
+    });
+
+    input.addEventListener('blur', () => {
+      if (!input.value) {
+        input.type = 'text';
+      }
+    });
+  });
+</script>
+
+
+
+  
+</script>
 </body>
 </html>

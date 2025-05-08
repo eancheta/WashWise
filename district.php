@@ -40,7 +40,7 @@ require_once 'config.php';
         </div>
     </header>
 
-    <div class ="heads" style="">
+    <div class ="heads">
         <h1 style="color: white;">District-Based Car Wash Listing</h1>
         <div class="Input">
                     <select name="rolOw" id="district"  onchange="updateBarangays()" style="margin-left:40%; text-align: center; width: 20%; padding: 10px; border-radius: 5px; border: 1px solid black; font-size: 14px; color: black;" required>
