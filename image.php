@@ -21,15 +21,6 @@ if (isset($_POST["submit"])) {
     )";
 
 
-    if ($conn->query($sql) === TRUE) {
-        echo "✅ Table '$fullName' created successfully!";
-        header("Location: verificationpage.php");
-        exit();
-    } else {
-        echo "❌ Error creating table: " . $conn->error;
-    }
-
-
     $ext = pathinfo($fileName, PATHINFO_EXTENSION);
     $allowedTypes = array("jpg", "jpeg", "png", "gif");
     $tempName = $_FILES["image"]["tmp_name"];
