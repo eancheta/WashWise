@@ -39,4 +39,7 @@ if (isset($_POST["submit"])) {
     header("Location: verificationpage.php");
     exit();
 }
+else{
+    echo"sa";
+}
 ?>
