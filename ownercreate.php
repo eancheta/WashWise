@@ -8,7 +8,17 @@
 </head>
 <body>
     <header>
-        <div class="logo"></div>
+        <div class="navbar">
+        <div class="logo">
+            
+        </div>
+            <a href="index.html"> Home </a>
+            <a href="#about"> About </a>
+            <a href="terms.html"> Sign up </a>
+        <div class="log">
+            <a href="Login.php"> Sign in </a></div>
+        </div>
+        </div>
     </header>
 
     <section>
@@ -29,6 +39,9 @@
                     <input type="text"  placeholder="Password" name="passwOw" required>
                 </div>
 
+                <div class="form-group">
+                    <input type="text"  placeholder="Full Address" name="address" required>
+                </div>
           
                 <div class="form-group">
                   <label for="description">Description</label>
@@ -46,19 +59,12 @@
                         <option value="District_6">District 6</option>
                     </select>
                 </div>
-
-                <div class="Input">
-                    <select id="barangay" name="cityOw">
-                        <option value="">-- Select Barangay --</option>
-                    </select>
+                
+                <button type="submit" class="btn0" name="register">Register</button>
+                <div class="reg">
+                    <p>Already have an account? <a href="Login.php">Login</a></p>
+                    <p>Register as <a href="ownercreate.php">Owner</a></p>
                 </div>
-
-                <div class="form-group">
-                    <input type="text"  placeholder="Full Address" name="address" required>
-                </div>
-
-          
-                <button class="save-btn" name="submit">Save</button>
             </form>
           </div>
 
