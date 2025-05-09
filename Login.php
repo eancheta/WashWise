@@ -34,7 +34,7 @@ $error = [
     </div>
         <a href="index.html"> Home </a>
         <a href="index.html"> About </a>
-        <a href="SignUp.php"> Sign up </a>
+        <a href="terms.html"> Sign up </a>
         <div class="log">
             <a href="Login.php"> Sign in </a></div>
         </div>

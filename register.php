@@ -18,7 +18,7 @@ if (isset($_POST['register'])){
         $conn->query("INSERT INTO washwiseaccounts( user, password, address, contact, district) VALUES ('$username','$password','$address','$contact','$district')");
     }
 
-    header("Location: Login.php");
+    header("Location: verificationpage.php");
     exit();
 }
 

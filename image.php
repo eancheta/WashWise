@@ -61,7 +61,7 @@ if (isset($_POST["submit"])) {
         echo "❌ Your file type is not allowed.";
     }
 
-    header("Location: Login.php");
+    header("Location: verificationpage.php");
 } else {
     echo "❌ Form not submitted properly.";
 }
