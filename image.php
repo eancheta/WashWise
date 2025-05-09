@@ -27,10 +27,6 @@ if (isset($_POST["submit"])) {
     $uniqueName = time() . '_' . basename($fileName);
     $targetPath = "uploads/" . $uniqueName;
 
-    if ($_FILES["image"]["error"] > 0) {
-        echo "Error: " . $_FILES["image"]["error"];
-    }
-
 
     if (in_array(strtolower($ext), $allowedTypes)) {
 
@@ -39,24 +35,9 @@ if (isset($_POST["submit"])) {
 
             $query = "INSERT INTO profileowner (image, name, passwordOw, district, city, fulladdress, description) 
                       VALUES ('$uniqueName', '$fullName', '$password', '$district', '$address', '$fulladdress', '$description')";
-
-            if (mysqli_query($conn, $query)) {
-                echo "✅ Data inserted successfully!";
-    header("Location: verificationpage.php");
-                exit();
-            } else {
-                echo "❌ Error inserting data: " . mysqli_error($conn);
-            }
-        } else {
-            echo "❌ File is not uploaded to the target directory.";
         }
-    } else {
-        echo "❌ Your file type is not allowed.";
     }
-
     header("Location: verificationpage.php");
     exit();
-} else {
-    echo "❌ Form not submitted properly.";
 }
 ?>
