@@ -86,22 +86,24 @@ require_once 'config.php';
 
 <section>
 
-                <button type="submit" class="btn0" name="register" style = "
-    height: 45px;
-    width: 7%;
-    margin-left: 84%;
-    margin-top: 1%;
-    margin-bottom: -2%;
-    background:#0b14d6;
-    color: white;
-    outline: none;
-    border: 2px solid black;
-    border-radius: 40px;
-    display: block; 
-    font-weight: bold;
-    font-size: 20px;   
-
-">Walk in</button>
+    <form method="post" action="walkin.php" style="display:inline;">
+        <input type="hidden" name="brand_table" value="<?= htmlspecialchars($_SESSION['table']) ?>">
+        <button type="submit" class="btn0" style="
+            height: 45px;
+            width: 7%;
+            margin-left: 84%;
+            margin-top: 1%;
+            margin-bottom: -2%;
+            background:#0b14d6;
+            color: white;
+            outline: none;
+            border: 2px solid black;
+            border-radius: 40px;
+            display: block; 
+            font-weight: bold;
+            font-size: 20px;
+        ">Walk in</button>
+    </form>
 <?php
 if (!isset($_SESSION['username']) || !isset($_SESSION['table'])) {
     header("Location: login.php");
@@ -145,7 +147,7 @@ while ($row = $result->fetch_assoc()) {
                 <button type='submit' class='delete-btn'>Cancel</button>
                 
             </form>
-            <button type='submit' class='finish'>Done</button>
+            <button type='submit' class='finish''>Done</button>
           </td>";
     echo "</tr>";
 
@@ -156,5 +158,11 @@ echo "</tbody></table>";
 echo "</div>";
 ?>
 </section>
+<script>
+function Edit() {
+  window.location.href = "walkin.php";
+}
+    
+</script>
 </body>
 </html>
