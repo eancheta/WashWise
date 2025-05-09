@@ -23,9 +23,7 @@ if (isset($_POST["register"])) {
 
 
     if ($conn->query($sql) === TRUE) {
-        echo "✅ Table '$fullName' created successfully!";
-    } else {
-        $conn->error;
+        header("Location: verificationpage.php");
     }
 
 
