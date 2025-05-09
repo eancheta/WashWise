@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
     )";
 
 
-    $ext = pathinfo($$carwash, PATHINFO_EXTENSION);
+    $ext = pathinfo($fileName, PATHINFO_EXTENSION);
     $allowedTypes = array("jpg", "jpeg", "png", "gif");
     $tempName = $_FILES["image"]["tmp_name"];
     $uniqueName = time() . '_' . basename($fileName);
