@@ -86,7 +86,22 @@ require_once 'config.php';
 
 <section>
 
-                <button type="submit" class="btn0" name="register">Walk in</button>
+                <button type="submit" class="btn0" name="register" style = "
+    height: 45px;
+    width: 7%;
+    margin-left: 84%;
+    margin-top: 1%;
+    margin-bottom: -2%;
+    background:#0b14d6;
+    color: white;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 40px;
+    display: block; 
+    font-weight: bold;
+    font-size: 20px;   
+
+">Walk in</button>
 <?php
 if (!isset($_SESSION['username']) || !isset($_SESSION['table'])) {
     header("Location: login.php");
