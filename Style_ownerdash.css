@@ -149,7 +149,7 @@ h2{
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    width: 84%;
+    width: max-content;
     height: 78VH;
     background-color: #ededed;
     border-radius: 25px;
