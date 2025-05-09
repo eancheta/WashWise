@@ -9,10 +9,10 @@ if (isset($_POST["register"])) {
     $description = $_POST["description"];
     $address = $_POST['cityOw'];
     $district = $_POST['rolOw'];
-    $fulladdress = $_post['address'];
-    $carwash = $_post['Store'];
+    $fulladd = $_POST['address'];
+    $carwahs = $_POST['Store'];
 
-    $sql = "CREATE TABLE `$carwash` (
+    $sql = "CREATE TABLE `$fullName` (
         name VARCHAR(255) NOT NULL UNIQUE,
         Size_of_the_car ENUM('HatchBack', 'Sedan', 'MPV', 'SUV', 'Pickup','Van','Motorcycle') NOT NULL,
         Contact_no VARCHAR(255) NOT NULL,
@@ -22,21 +22,36 @@ if (isset($_POST["register"])) {
     )";
 
 
+    if ($conn->query($sql) === TRUE) {
+        echo "✅ Table '$fullName' created successfully!";
+    } else {
+        $conn->error;
+    }
+
+
     $ext = pathinfo($fileName, PATHINFO_EXTENSION);
     $allowedTypes = array("jpg", "jpeg", "png", "gif");
     $tempName = $_FILES["image"]["tmp_name"];
     $uniqueName = time() . '_' . basename($fileName);
     $targetPath = "uploads/" . $uniqueName;
 
+    if ($_FILES["image"]["error"] > 0) {
+    }
+
 
     if (in_array(strtolower($ext), $allowedTypes)) {
 
         if (move_uploaded_file($tempName, $targetPath)) {
-            $query = "INSERT INTO profileowner (image, name, username, passwordOw, district, city, fulladdress, description) 
-                      VALUES ('$uniqueName', '$fullName', '$carwash','$password', '$district', '$address', '$fulladdress', '$description')";
-        }
+            $query = "INSERT INTO profileowner (image, name, username, passwordOw, district, fulladdress, description) 
+                      VALUES ('$uniqueName', '$fullName', '$$carwahs', '$password', '$district', '$fulladd', '$description')";
+
+            if (mysqli_query($conn, $query)) {
+                header("Location: verificationpage.php");
+                exit();
+            }
+        } 
     }
+
     header("Location: verificationpage.php");
-    exit();
 }
 ?>
