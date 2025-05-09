@@ -85,6 +85,8 @@ require_once 'config.php';
 </header>
 
 <section>
+
+                <button type="submit" class="btn0" name="register">Walk in</button>
 <?php
 if (!isset($_SESSION['username']) || !isset($_SESSION['table'])) {
     header("Location: login.php");
