@@ -63,7 +63,7 @@
                 <button type="submit" class="btn0" name="register">Register</button>
                 <div class="reg">
                     <p>Already have an account? <a href="Login.php">Login</a></p>
-                    <p>Register as <a href="ownercreate.php">Owner</a></p>
+                    <p>Register as <a href="SignUp.php">Owner</a></p>
                 </div>
             </form>
           </div>

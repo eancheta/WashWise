@@ -34,7 +34,7 @@ $tableName = $_POST['brand_table'] ?? $_SESSION['brand_table'] ?? null;
             <input type='text' class='Input' name='name' placeholder='Name:' required><br>
             <label></label><br>
             <select name='size' required>
-                <option value=''>--Vehicel Type:---</option>
+                <option value=''>--Vehicel Type---</option>
                 <option value='HatchBack'>HatchBack</option>
                 <option value='Sedan'>Sedan</option>
                 <option value='MPV'>MPV</option>
