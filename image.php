@@ -31,8 +31,6 @@ if (isset($_POST["submit"])) {
     if (in_array(strtolower($ext), $allowedTypes)) {
 
         if (move_uploaded_file($tempName, $targetPath)) {
-            echo "✅ File uploaded successfully to: $targetPath";
-
             $query = "INSERT INTO profileowner (image, name, passwordOw, district, city, fulladdress, description) 
                       VALUES ('$uniqueName', '$fullName', '$password', '$district', '$address', '$fulladdress', '$description')";
         }
