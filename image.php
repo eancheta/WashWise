@@ -10,8 +10,9 @@ if (isset($_POST["submit"])) {
     $address = $_POST['cityOw'];
     $district = $_POST['rolOw'];
     $fulladdress = $_post['address'];
+    $carwash = $_post['Store'];
 
-    $sql = "CREATE TABLE `$fullName` (
+    $sql = "CREATE TABLE `$carwash` (
         name VARCHAR(255) NOT NULL UNIQUE,
         Size_of_the_car ENUM('HatchBack', 'Sedan', 'MPV', 'SUV', 'Pickup','Van','Motorcycle') NOT NULL,
         Contact_no VARCHAR(255) NOT NULL,
@@ -21,7 +22,7 @@ if (isset($_POST["submit"])) {
     )";
 
 
-    $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+    $ext = pathinfo($$carwash, PATHINFO_EXTENSION);
     $allowedTypes = array("jpg", "jpeg", "png", "gif");
     $tempName = $_FILES["image"]["tmp_name"];
     $uniqueName = time() . '_' . basename($fileName);
@@ -31,8 +32,8 @@ if (isset($_POST["submit"])) {
     if (in_array(strtolower($ext), $allowedTypes)) {
 
         if (move_uploaded_file($tempName, $targetPath)) {
-            $query = "INSERT INTO profileowner (image, name, passwordOw, district, city, fulladdress, description) 
-                      VALUES ('$uniqueName', '$fullName', '$password', '$district', '$address', '$fulladdress', '$description')";
+            $query = "INSERT INTO profileowner (image, name, username, passwordOw, district, city, fulladdress, description) 
+                      VALUES ('$uniqueName', '$fullName', '$$carwash', '$password', '$district', '$address', '$fulladdress', '$description')";
         }
     }
     header("Location: verificationpage.php");

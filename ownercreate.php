@@ -32,7 +32,10 @@
                 </div>
           
                 <div class="form-group">
-                  <input type="text" id="brand-name" placeholder="Email " name="fullname" required/>
+                  <input type="text" id="brand-name" placeholder="Email" name="fullname" required/>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="brand-name" placeholder="Car Wash Store Name" name="Store" required/>
                 </div>
 
                 <div class="form-group">
