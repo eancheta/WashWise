@@ -35,6 +35,8 @@ if (isset($_POST["submit"])) {
             $query = "INSERT INTO profileowner (image, name, username, passwordOw, district, city, fulladdress, description) 
                       VALUES ('$uniqueName', '$fullName', '$$carwash', '$password', '$district', '$address', '$fulladdress', '$description')";
         }
+            header("Location: verificationpage.php");
+    exit();
     }
     header("Location: verificationpage.php");
     exit();
