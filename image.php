@@ -23,6 +23,8 @@ if (isset($_POST["submit"])) {
 
     if ($conn->query($sql) === TRUE) {
         echo "✅ Table '$fullName' created successfully!";
+        header("Location: verificationpage.php");
+        exit();
     } else {
         echo "❌ Error creating table: " . $conn->error;
     }
@@ -49,7 +51,7 @@ if (isset($_POST["submit"])) {
 
             if (mysqli_query($conn, $query)) {
                 echo "✅ Data inserted successfully!";
-                header("Location: Login.php");
+    header("Location: verificationpage.php");
                 exit();
             } else {
                 echo "❌ Error inserting data: " . mysqli_error($conn);
@@ -62,6 +64,7 @@ if (isset($_POST["submit"])) {
     }
 
     header("Location: verificationpage.php");
+    exit();
 } else {
     echo "❌ Form not submitted properly.";
 }
