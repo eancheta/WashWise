@@ -31,7 +31,7 @@ $tableName = $_SESSION['brand_table'] ?? null;
     if ($tableName) {
         echo "<h2>Walk in at " . htmlspecialchars($tableName) . "</h2>";
         echo "
-        <form method='post' action='insert_process.php'>
+        <form method='post' action='insert_processwalkin.php'>
             <input type='hidden' name='brand_table' value='" . htmlspecialchars($tableName) . "'>
             <input type='text' class='Input' name='name' placeholder='Name:' required><br>
             <label></label><br>
