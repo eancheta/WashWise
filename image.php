@@ -1,17 +1,15 @@
 <?php
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1); // Also useful
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include_once("config.php");
 
 if (isset($_POST["register"])) {
-
     $fullName = $_POST["fullname"];
     $fileName = $_FILES["image"]["name"];
-    $password = password_hash ($_POST['passwOw'], PASSWORD_DEFAULT);
+    $password = password_hash($_POST['passwOw'], PASSWORD_DEFAULT);
     $description = $_POST["description"];
-    $address = $_POST['cityOw'];
     $district = $_POST['rolOw'];
     $fulladd = $_POST['address'];
     $carwahs = $_POST['Store'];
@@ -25,11 +23,9 @@ if (isset($_POST["register"])) {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
 
-
-    if ($conn->query($sql) === TRUE) {
-        header("Location: verificationpage.php");
+    if (!$conn->query($sql)) {
+        die("Error creating table: " . $conn->error);
     }
-
 
     $ext = pathinfo($fileName, PATHINFO_EXTENSION);
     $allowedTypes = array("jpg", "jpeg", "png", "gif");
@@ -38,11 +34,10 @@ if (isset($_POST["register"])) {
     $targetPath = "uploads/" . $uniqueName;
 
     if ($_FILES["image"]["error"] > 0) {
+        die("File upload error: " . $_FILES["image"]["error"]);
     }
 
-
     if (in_array(strtolower($ext), $allowedTypes)) {
-
         if (move_uploaded_file($tempName, $targetPath)) {
             $query = "INSERT INTO profileowner (image, name, username, passwordOw, district, fulladdress, description) 
                       VALUES ('$uniqueName', '$fullName', '$carwahs', '$password', '$district', '$fulladd', '$description')";
@@ -50,10 +45,14 @@ if (isset($_POST["register"])) {
             if (mysqli_query($conn, $query)) {
                 header("Location: verificationpage.php");
                 exit();
+            } else {
+                die("Insert error: " . mysqli_error($conn));
             }
-        } 
+        } else {
+            die("Failed to move uploaded file.");
+        }
+    } else {
+        die("Unsupported file type.");
     }
-
-    header("Location: verificationpage.php");
 }
 ?>
