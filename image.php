@@ -22,14 +22,9 @@ if (isset($_POST["register"])) {
     )";
 
 
- if ($conn->query($sql) === TRUE) {
-        echo "✅ Table '$fullName' created successfully!";
+    if ($conn->query($sql) === TRUE) {
         header("Location: verificationpage.php");
-        exit();
-    } else {
-        echo "❌ Error creating table: " . $conn->error;
-    }        header("Location: verificationpage.php");
-    
+    }
 
 
     $ext = pathinfo($fileName, PATHINFO_EXTENSION);
@@ -39,7 +34,6 @@ if (isset($_POST["register"])) {
     $targetPath = "uploads/" . $uniqueName;
 
     if ($_FILES["image"]["error"] > 0) {
-        echo "Error: " . $_FILES["image"]["error"];
     }
 
 
@@ -49,23 +43,13 @@ if (isset($_POST["register"])) {
             $query = "INSERT INTO profileowner (image, name, username, passwordOw, district, fulladdress, description) 
                       VALUES ('$uniqueName', '$fullName', '$$carwahs', '$password', '$district', '$fulladd', '$description')";
 
-           if (mysqli_query($conn, $query)) {
-                echo "✅ Data inserted successfully!";
-    header("Location: verificationpage.php");
+            if (mysqli_query($conn, $query)) {
+                header("Location: verificationpage.php");
                 exit();
-            } else {
-                echo "❌ Error inserting data: " . mysqli_error($conn);
             }
-        } else {
-            echo "❌ File is not uploaded to the target directory.";
-        }
-    } else {
-        echo "❌ Your file type is not allowed.";
+        } 
     }
 
     header("Location: verificationpage.php");
-    exit();
-} else {
-    echo "❌ Form not submitted properly.";
-}  
+}
 ?>
