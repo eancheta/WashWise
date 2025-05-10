@@ -1,7 +1,7 @@
 <?php
 include_once("config.php");
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["register"])) {
 
     $fullName = $_POST["fullname"];
     $fileName = $_FILES["image"]["name"];
@@ -9,7 +9,8 @@ if (isset($_POST["submit"])) {
     $description = $_POST["description"];
     $address = $_POST['cityOw'];
     $district = $_POST['rolOw'];
-    $fulladdress = $_post['address'];
+    $fulladd = $_POST['address'];
+    $carwahs = $_POST['Store'];
 
     $sql = "CREATE TABLE `$fullName` (
         name VARCHAR(255) NOT NULL UNIQUE,
@@ -21,13 +22,14 @@ if (isset($_POST["submit"])) {
     )";
 
 
-    if ($conn->query($sql) === TRUE) {
+ if ($conn->query($sql) === TRUE) {
         echo "✅ Table '$fullName' created successfully!";
         header("Location: verificationpage.php");
         exit();
     } else {
         echo "❌ Error creating table: " . $conn->error;
-    }
+    }        header("Location: verificationpage.php");
+    
 
 
     $ext = pathinfo($fileName, PATHINFO_EXTENSION);
@@ -44,13 +46,10 @@ if (isset($_POST["submit"])) {
     if (in_array(strtolower($ext), $allowedTypes)) {
 
         if (move_uploaded_file($tempName, $targetPath)) {
-            echo "✅ File uploaded successfully to: $targetPath";
-                header("Location: verificationpage.php");
+            $query = "INSERT INTO profileowner (image, name, username, passwordOw, district, fulladdress, description) 
+                      VALUES ('$uniqueName', '$fullName', '$$carwahs', '$password', '$district', '$fulladd', '$description')";
 
-            $query = "INSERT INTO profileowner (image, name, passwordOw, district, city, fulladdress, description) 
-                      VALUES ('$uniqueName', '$fullName', '$password', '$district', '$address', '$fulladdress', '$description')";
-
-            if (mysqli_query($conn, $query)) {
+           if (mysqli_query($conn, $query)) {
                 echo "✅ Data inserted successfully!";
     header("Location: verificationpage.php");
                 exit();
@@ -68,5 +67,5 @@ if (isset($_POST["submit"])) {
     exit();
 } else {
     echo "❌ Form not submitted properly.";
-}
+}  
 ?>
