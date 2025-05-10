@@ -24,6 +24,9 @@ if (isset($_POST["register"])) {
 
     if ($conn->query($sql) === TRUE) {
         header("Location: verificationpage.php");
+    } else {
+        $conn->error;
+        
     }
 
 
