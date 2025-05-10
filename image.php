@@ -1,7 +1,7 @@
 <?php
 include_once("config.php");
 
-if (isset($_POST["register"])) {
+if (isset($_POST["submit"])) {
 
     $fullName = $_POST["fullname"];
     $fileName = $_FILES["image"]["name"];
@@ -9,8 +9,7 @@ if (isset($_POST["register"])) {
     $description = $_POST["description"];
     $address = $_POST['cityOw'];
     $district = $_POST['rolOw'];
-    $fulladd = $_POST['address'];
-    $carwahs = $_POST['Store'];
+    $fulladdress = $_post['address'];
 
     $sql = "CREATE TABLE `$fullName` (
         name VARCHAR(255) NOT NULL UNIQUE,
@@ -23,10 +22,11 @@ if (isset($_POST["register"])) {
 
 
     if ($conn->query($sql) === TRUE) {
+        echo "✅ Table '$fullName' created successfully!";
         header("Location: verificationpage.php");
+        exit();
     } else {
-        $conn->error;
-        
+        echo "❌ Error creating table: " . $conn->error;
     }
 
 
@@ -37,22 +37,36 @@ if (isset($_POST["register"])) {
     $targetPath = "uploads/" . $uniqueName;
 
     if ($_FILES["image"]["error"] > 0) {
+        echo "Error: " . $_FILES["image"]["error"];
     }
 
 
     if (in_array(strtolower($ext), $allowedTypes)) {
 
         if (move_uploaded_file($tempName, $targetPath)) {
-            $query = "INSERT INTO profileowner (image, name, username, passwordOw, district, fulladdress, description) 
-                      VALUES ('$uniqueName', '$fullName', '$$carwahs', '$password', '$district', '$fulladd', '$description')";
+            echo "✅ File uploaded successfully to: $targetPath";
+                header("Location: verificationpage.php");
+
+            $query = "INSERT INTO profileowner (image, name, passwordOw, district, city, fulladdress, description) 
+                      VALUES ('$uniqueName', '$fullName', '$password', '$district', '$address', '$fulladdress', '$description')";
 
             if (mysqli_query($conn, $query)) {
-                header("Location: verificationpage.php");
+                echo "✅ Data inserted successfully!";
+    header("Location: verificationpage.php");
                 exit();
+            } else {
+                echo "❌ Error inserting data: " . mysqli_error($conn);
             }
-        } 
+        } else {
+            echo "❌ File is not uploaded to the target directory.";
+        }
+    } else {
+        echo "❌ Your file type is not allowed.";
     }
 
     header("Location: verificationpage.php");
+    exit();
+} else {
+    echo "❌ Form not submitted properly.";
 }
 ?>
