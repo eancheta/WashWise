@@ -148,12 +148,17 @@ section{
     align-items: center;
 }
 
-.container{
+.container {
     width: 60%;
     height: 650px;
     margin-left: 20px;
     margin-top: -2%;
     background-color: #f1f3fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 50px; /* space at the bottom */
 }
 
 .pro{
@@ -168,20 +173,16 @@ section{
     border-radius: 25px;
     align-items: baseline;
     }
-    .btn0 {
-        position: absolute;
-        bottom: 130px;
-        right: 32%;
-        height: 45px;
-        width: 15%;
-        background: #378BA4;
-        outline: none;
-        border: 2px solid black;
-        border-radius: 10px;
-        font-weight: bold;
-        font-size: 20px;
-    }
-    
+.btn0 {
+    height: 45px;
+    width: 40%;
+    background: #378BA4;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
     
     
 
