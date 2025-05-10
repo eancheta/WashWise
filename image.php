@@ -41,7 +41,7 @@ if (isset($_POST["register"])) {
 
         if (move_uploaded_file($tempName, $targetPath)) {
             $query = "INSERT INTO profileowner (image, name, username, passwordOw, district, fulladdress, description) 
-                      VALUES ('$uniqueName', '$fullName', '$$carwahs', '$password', '$district', '$fulladd', '$description')";
+                      VALUES ('$uniqueName', '$fullName', '$carwahs', '$password', '$district', '$fulladd', '$description')";
 
             if (mysqli_query($conn, $query)) {
                 header("Location: verificationpage.php");
