@@ -10,9 +10,7 @@ error_reporting(E_ALL);
 if (isset($_POST['register'])) {
     $username = $_POST['usern'];
     $password = password_hash($_POST['passw'], PASSWORD_DEFAULT);
-    $address = $_POST['add'];
     $contact = $_POST['cont'];
-    $district = $_POST['rol'];
 
 
     $stmt = $conn->prepare("SELECT user FROM washwiseaccounts WHERE user = ?");
@@ -23,8 +21,8 @@ if (isset($_POST['register'])) {
     if ($stmt->num_rows > 0) {
         $_SESSION['register_error'] = 'Username is already registered';
     } else {
-        $insert = $conn->prepare("INSERT INTO washwiseaccounts (user, password, address, contact, district) VALUES (?, ?, ?, ?, ?)");
-        $insert->bind_param("sssss", $username, $password, $address, $contact, $district);
+        $insert = $conn->prepare("INSERT INTO washwiseaccounts (user, password, contact) VALUES (?, ?, ?)");
+        $insert->bind_param("sss", $username, $password, $contact);
         $insert->execute();
     }
 
