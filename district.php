@@ -70,7 +70,7 @@ require_once 'config.php';
                     $description = $row["description"];
                     $imageUrl = "uploads/" . $fileName;
                     echo "<div class='profile'>";
-                    echo "<img src='$imageUrl'>";
+                    echo "<a href='profileowner.php'><img src='$imageUrl'></a>";
                     echo "<div class='info'>";
                     echo "<h3 class='nam'>$name</h3>";
                     echo "<h3 class='des'>$description</h3>";
